@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The 15th KOOK-TAPU Joint Seminar on Knots and Related Topics and The 17th Graduate Student Workshop on Mathematics</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      /* ↓↓↓ 이 두 속성만 추가 ↓↓↓ */
+      font-size: 16px;    /* 기본 글자 크기를 16px 로 설정 */
+      line-height: 1.6;   /* 줄간격도 1.6 정도로 늘려 가독성 확보 */
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-text h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    .hero-text p {
+      font-size: 1.2em;
+    }
+
+    nav {
+      background-color: #4B65B6;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 60px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #4B65B6;
+      border-left: 6px solid #4B65B6;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    .schedule-day {
+      background: #f6f8ff;
+      border-left: 4px solid #4B65B6;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+    }
+
+    th, td {
+      border: 1.5px solid #4B65B6;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.95em;
+    }
+
+    th {
+      background-color: #4B65B6;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #edf1ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #4B65B6;
+      color: white;
+    }
+
+   /* Support 섹션 이미지 컨테이너: 가로 나열 */
+.support-images {
+  display: flex;
+  flex-direction: row;    /* 가로 방향 */
+  flex-wrap: wrap;        /* 컨테이너 넘치면 다음 줄로 */
+  justify-content: center;
+  align-items: center;    /* 세로 중앙 정렬 */
+  gap: 20px;              /* 이미지 간격 */
+  margin: 20px 0;
+}
+
+/* 이미지 박스: 동일한 크기 & 비율 유지 */
+.support-images img {
+  width: 150px;           /* 박스 너비 */
+  height: 150px;          /* 박스 높이 */
+  object-fit: contain;    /* 비율 유지하며 박스 안에 맞춤 */
+  background-color: white;/* 배경 흰색(선택) */
+  padding: 10px;          /* 안쪽 여백(선택) */
+  border-radius: 8px;     
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+    /* — Abstracts 섹션 — */
+#abstracts .abstracts {
+  margin-top: 20px;
+}
+
+#abstracts .abstract {
+  border-top: 1px solid #4B65B6; /* 연사별 구분선 */
+  padding: 20px 0;
+}
+
+/* 첫 번째 구분선은 생략하고 싶다면 아래를 추가 */
+// #abstracts .abstract:first-child { border-top: none; }
+
+#abstracts .speaker {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+}
+
+#abstracts .affiliation {
+  font-weight: normal;
+  font-style: italic;
+}
+
+#abstracts .abstract-text {
+  margin: 0.75em 0 0;  /* 위 연사명과 간격 */
+  line-height: 1.5;
+  text-align: justify;
+  white-space: pre-wrap; /* 긴 텍스트가 자동 줄바꿈 되게 */
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="hero">
+  <img src="KNU.png" alt="KNU Campus">
+  <div class="hero-text">
+    <h1>The 16th TAPU-KOOK Joint Seminar<br>
+        on Knots and Related Topics and<br>
+        The 18th Graduate Student Workshop on Mathematics
+    </h1>
+    <p>July 29–31, 2025 · Kyungpook National University</p>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <a onclick="showSection('home')">Home</a>
+  <a onclick="showSection('schedule')">Schedule</a>
+  <a onclick="showSection('abstracts')">Abstracts</a>
+  <a onclick="showSection('registration')">Registration</a>
+  <a onclick="showSection('venue')">Venue</a>
+</nav>
+
+<!-- Sections -->
+<main>
+  <section id="home" class="active">
+    <h2>Welcome</h2>
+    <p>Every year, a group of KNU, PNU, OMU, and OU topologists and their academic families and friends is organizing an international conference on knots and related topics alternately at Kyungpook National University, Pusan National University, 
+      and Osaka Metropolitan University. The 16th TAPU-KOOK Joint Seminar on Knots and Related Topics and the 18th Graduate Student Workshop on Mathematics will take place at the Department of Mathematics, Kyungpook National University, July 29-31, 2025.</p>
+
+    <h2>Organizing Committee</h2>
+  <div class="committee">
+    <h3>Local Organizers</h3>
+    <hr />
+    <ul>
+      <li>Yongju Bae (Kyungpook National University)</li>
+      <li>Seung Yeop Yang (Kyungpook National University)</li>
+      <li>Byeorhi Kim (POSTECH)</li>
+      <li>Jinseok Oh (Kyungpook National University)</li>
+      <li>Hongdae Yun (Kyungpook National University)</li>
+    </ul>
+  </div>
+
+    <h2>Support</h2>
+    The 16th TAPU-KOOK Joint Seminar on Knots and Related Topics and 
+    The 18th Graduate Student Workshop on Mathematics are partially supported by the following:
+    <!-- ↓↓ 여기에 사진을 넣을 컨테이너 추가 ↓↓ -->
+    <div class="support-images">
+      <img src="KNUS.jpg" alt="Sponsor 1 Logo">
+      <img src="BK2.png" alt="Sponsor 1 Logo">
+      <img src="SRC.png" alt="Sponsor 2 Logo">
+      <img src="LAMP.png" alt="Sponsor 3 Logo">
+    <!-- 필요만큼 <img> 태그를 추가 -->
+    </div>
+    <!-- ↑↑ 사진 컨테이너 끝 ↑↑ -->
+  </section>
+
+
+  <section id="schedule">
+  <h2>Schedule</h2>
+
+  <!-- Day 1 -->
+  <div class="schedule-day">
+    <h3>Day 1 – July 29</h3>
+    <table>
+      <tr><th>Time</th><th>Speaker</th><th>Title</th></tr>
+        <tr><td>09:00 - 09:30</td><td>Speaker 1</td><td>Title 1</td></tr>
+        <tr><td>09:30 - 10:00</td><td>Speaker 2</td><td>Title 2</td></tr>
+        <tr><td>10:00 - 10:30</td><td>Speaker 3</td><td>Title 3</td></tr>
+        <tr><td>10:30 - 11:00</td><td>Speaker 4</td><td>Title 4</td></tr>
+        <tr><td>11:00 - 11:30</td><td>Speaker 5</td><td>Title 5</td></tr>
+        <tr><td>11:30 - 12:00</td><td>Speaker 6</td><td>Title 6</td></tr>
+        <tr><td colspan="3">Lunch Break</td></tr>
+        <tr><td>13:30 - 14:00</td><td>Speaker 7</td><td>Title 7</td></tr>
+        <tr><td>14:00 - 14:30</td><td>Speaker 8</td><td>Title 8</td></tr>
+        <tr><td>14:30 - 15:00</td><td>Speaker 9</td><td>Title 9</td></tr>
+        <tr><td>15:00 - 15:30</td><td>Speaker 10</td><td>Title 10</td></tr>
+        <tr><td>15:30 - 16:00</td><td>Speaker 11</td><td>Title 11</td></tr>
+        <tr><td>16:00 - 16:30</td><td>Speaker 12</td><td>Title 12</td></tr>
+        <tr><td>16:30 - 17:00</td><td>Speaker 13</td><td>Title 13</td></tr>
+        <tr><td>17:00 - 17:30</td><td>Speaker 14</td><td>Title 14</td></tr>
+        <tr><td>17:30 - 18:00</td><td>Speaker 15</td><td>Title 15</td></tr>
+    </table>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="schedule-day">
+    <h3>Day 2 – July 30</h3>
+    <table>
+      <tr><th>Time</th><th>Speaker</th><th>Title</th></tr>
+        <tr><td>09:00 - 09:30</td><td>Speaker 1</td><td>Title 1</td></tr>
+        <tr><td>09:30 - 10:00</td><td>Speaker 2</td><td>Title 2</td></tr>
+        <tr><td>10:00 - 10:30</td><td>Speaker 3</td><td>Title 3</td></tr>
+        <tr><td>10:30 - 11:00</td><td>Speaker 4</td><td>Title 4</td></tr>
+        <tr><td>11:00 - 11:30</td><td>Speaker 5</td><td>Title 5</td></tr>
+        <tr><td>11:30 - 12:00</td><td>Speaker 6</td><td>Title 6</td></tr>
+        <tr><td colspan="3">Lunch Break</td></tr>
+        <tr><td>13:30 - 14:00</td><td>Speaker 7</td><td>Title 7</td></tr>
+        <tr><td>14:00 - 14:30</td><td>Speaker 8</td><td>Title 8</td></tr>
+        <tr><td>14:30 - 15:00</td><td>Speaker 9</td><td>Title 9</td></tr>
+        <tr><td>15:00 - 15:30</td><td>Speaker 10</td><td>Title 10</td></tr>
+        <tr><td>15:30 - 16:00</td><td>Speaker 11</td><td>Title 11</td></tr>
+        <tr><td>16:00 - 16:30</td><td>Speaker 12</td><td>Title 12</td></tr>
+        <tr><td>16:30 - 17:00</td><td>Speaker 13</td><td>Title 13</td></tr>
+        <tr><td>17:00 - 17:30</td><td>Speaker 14</td><td>Title 14</td></tr>
+        <tr><td>17:30 - 18:00</td><td>Speaker 15</td><td>Title 15</td></tr>
+    </table>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="schedule-day">
+    <h3>Day 3 – July 31</h3>
+    <table>
+      <tr><th>Time</th><th>Speaker</th><th>Title</th></tr>
+        <tr><td>09:00 - 09:30</td><td>Speaker 1</td><td>Title 1</td></tr>
+        <tr><td>09:30 - 10:00</td><td>Speaker 2</td><td>Title 2</td></tr>
+        <tr><td>10:00 - 10:30</td><td>Speaker 3</td><td>Title 3</td></tr>
+        <tr><td>10:30 - 11:00</td><td>Speaker 4</td><td>Title 4</td></tr>
+        <tr><td>11:00 - 11:30</td><td>Speaker 5</td><td>Title 5</td></tr>
+        <tr><td>11:30 - 12:00</td><td>Speaker 6</td><td>Title 6</td></tr>
+        <tr><td colspan="3">Lunch Break</td></tr>
+        <tr><td>13:30 - 14:00</td><td>Speaker 7</td><td>Title 7</td></tr>
+        <tr><td>14:00 - 14:30</td><td>Speaker 8</td><td>Title 8</td></tr>
+        <tr><td>14:30 - 15:00</td><td>Speaker 9</td><td>Title 9</td></tr>
+        <tr><td>15:00 - 15:30</td><td>Speaker 10</td><td>Title 10</td></tr>
+        <tr><td>15:30 - 16:00</td><td>Speaker 11</td><td>Title 11</td></tr>
+        <tr><td>16:00 - 16:30</td><td>Speaker 12</td><td>Title 12</td></tr>
+        <tr><td>16:30 - 17:00</td><td>Speaker 13</td><td>Title 13</td></tr>
+        <tr><td>17:00 - 17:30</td><td>Speaker 14</td><td>Title 14</td></tr>
+        <tr><td>17:30 - 18:00</td><td>Speaker 15</td><td>Title 15</td></tr>
+    </table>
+  </div>
+</section>
+
+
+  <section id="abstracts">
+    <h2>Abstracts</h2>
+    <div class="abstracts">
+      <p>Abstracts will be announced soon.</p>
+    <!-- 필요한 만큼 <div class="abstract">…</div> 를 추가 -->
+  </div>
+</section>
+
+  <section id="registration">
+    <h2>Registration</h2>
+    <p>Registration details will be announced on this page.</p>
+  </section>
+
+  <section id="venue">
+    <h2>Venue</h2>
+    <p>Department of Mathematics, Kyungpook National University.</p>
+  </section>
+</main>
+
+<!-- JavaScript -->
+<script>
+  function showSection(sectionId) {
+    const sections = document.querySelectorAll('main section');
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.classList.add('active');
+    } else {
+      alert("Section '" + sectionId + "' not found!");
+    }
+  }
+</script>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 TAPU-KOOK Conference · Kyungpook National University
+</footer>
+
+</body>
+</html>
